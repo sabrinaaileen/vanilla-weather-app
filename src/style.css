@@ -1,7 +1,11 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-
+.container {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
 h1 {
   color: rosybrown;
 }
