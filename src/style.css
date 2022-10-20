@@ -1,11 +1,25 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-.container {
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
+.weather-app {
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 15px;
+  border: 1px solid #e8eaef;
 }
 h1 {
   color: rosybrown;
+}
+.actualCelsius {
+  font-size: 20px;
+}
+.actualFahrenheit {
+  font-size: 20px;
+}
+.additionalTemp {
+  list-style: none;
+}
+
+.additionalInfo {
+  list-style: none;
 }
