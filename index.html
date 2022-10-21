@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Vanilla Weather App</title>
   </head>
   <body>
@@ -45,23 +46,22 @@
           <h1>Munich</h1>
           <h2>
             <span class="actualEmoji"> ☁️ </span>
-            <span class="actualTemp">16</span>
+            <span class="actualTemp"></span>
             <span class="actualCelsius">°C</span> |
             <span class="actualFahrenheit">°F</span>
           </h2>
 
           <div class="row">
-            <div class="col-4">
+            <div class="col-5">
               <ul class="additionalTemp">
                 <li>8° | 16°</li>
-                <li>Stark bewölkt</li>
+                <li id="description"></li>
               </ul>
             </div>
             <div class="col-5">
               <ul class="additionalInfo">
-                <li>Niederschlag: 2%</li>
-                <li>Luftfeuchte: 74%</li>
-                <li>Wind: 10 km/h</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
               </ul>
             </div>
           </div>
