@@ -1,12 +1,15 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-.weather-app {
+.weather-app-wrapper {
   max-width: 600px;
   margin: 15px auto;
+}
+.weather-app {
   padding: 15px;
   border: 1px solid #e8eaef;
 }
+
 h1 {
   color: rosybrown;
 }
