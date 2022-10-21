@@ -29,6 +29,9 @@ h2 {
 .additionalTemp {
   list-style: none;
 }
+#description::first-letter {
+  text-transform: capitalize;
+}
 
 .additionalInfo {
   list-style: none;
