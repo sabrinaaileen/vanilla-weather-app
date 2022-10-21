@@ -13,6 +13,14 @@ body {
 h1 {
   color: rosybrown;
 }
+h2 {
+  font-size: 30px;
+}
+.actualEmoji {
+}
+.actualTemp {
+  font-size: 40px;
+}
 .actualCelsius {
   font-size: 20px;
 }
