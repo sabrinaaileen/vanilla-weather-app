@@ -49,20 +49,24 @@ function showTemperature(response) {
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#weather-icon");
 
   temperature.innerHTML = Math.round(response.data.temperature.current);
   currentCity.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
   humidity.innerHTML = response.data.temperature.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
+  icon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#input-city");
-  search(city);
-}
-let searching = document.querySelector("");
+//function searchCity(event) {
+// event.preventDefault();
+//let city = document.querySelector("#input-city");
+//search(city);}
+//let searching = document.querySelector("");
 
 let city = "Munich";
 let apiKey = "02060cacd430ctof7d20b656741fc18d";
