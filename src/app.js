@@ -62,14 +62,17 @@ function showTemperature(response) {
   );
 }
 
-//function searchCity(event) {
-// event.preventDefault();
-//let city = document.querySelector("#input-city");
-//search(city);}
-//let searching = document.querySelector("");
+function search(city) {
+  let apiKey = "02060cacd430ctof7d20b656741fc18d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
-let city = "Munich";
-let apiKey = "02060cacd430ctof7d20b656741fc18d";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-
-axios.get(apiUrl).then(showTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#input-city");
+  console.log(cityElement.value);
+  search(cityElement.value);
+}
+let searching = document.querySelector("#search-form");
+searching.addEventListener("submit", handleSubmit);
