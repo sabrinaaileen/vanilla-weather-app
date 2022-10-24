@@ -102,4 +102,18 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsiusLink = document.querySelector("#celcius");
 celsiusLink.addEventListener("click", displayCelsius);
 
+function displayForecast(response) {
+  let forecastIcon = document.querySelector(".forecast-icon");
+  forecastIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+}
+
+function handleForecast(city) {
+  let forecastApiKey = "02060cacd430ctof7d20b656741fc18d";
+  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&units=metric`;
+  axios.get(forecastApiUrl).then(displayForecast);
+}
+
 search("Munich");
