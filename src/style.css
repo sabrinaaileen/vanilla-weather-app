@@ -20,11 +20,16 @@ h2 {
 .actualTemp {
   font-size: 40px;
 }
-.actualCelsius {
-  font-size: 20px;
+.units {
+  font-size: 15px;
+  font-style: italic;
+  position: relative;
+  top: -15px;
 }
-.actualFahrenheit {
-  font-size: 20px;
+.units .active {
+  color: black;
+
+  text-decoration: none;
 }
 .additionalTemp {
   list-style: none;
