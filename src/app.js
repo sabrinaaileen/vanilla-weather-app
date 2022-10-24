@@ -46,6 +46,7 @@ function showTemperature(response) {
   console.log(response.data);
   let temperature = document.querySelector(".actualTemp");
   let currentCity = document.querySelector("#city");
+  let feelsLike = document.querySelector("#feels-like-temp");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
@@ -55,6 +56,7 @@ function showTemperature(response) {
 
   temperature.innerHTML = Math.round(response.data.temperature.current);
   currentCity.innerHTML = response.data.city;
+  feelsLike.innerHTML = Math.round(response.data.temperature.feels_like);
   description.innerHTML = response.data.condition.description;
   humidity.innerHTML = response.data.temperature.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
@@ -99,3 +101,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celcius");
 celsiusLink.addEventListener("click", displayCelsius);
+
+search("Munich");
