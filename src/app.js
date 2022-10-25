@@ -42,6 +42,35 @@ function showDate() {
 }
 showDate();
 
+function displayForecast() {
+  let forcastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2">
+                <div class="forecast-date">${day}</div>
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                  alt=""
+                  class="forecast-icon"
+                  width="50px"
+                />
+                <div class="forecast-temp">
+                  <span class="forecast-min">9</span> |
+                  <span class="forecast-max">18</span>
+                </div>
+              </div>   
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forcastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperature = document.querySelector(".actualTemp");
@@ -102,18 +131,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsiusLink = document.querySelector("#celcius");
 celsiusLink.addEventListener("click", displayCelsius);
 
-function displayForecast(response) {
-  let forecastIcon = document.querySelector(".forecast-icon");
-  forecastIcon.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
-  );
-}
-
-function handleForecast(city) {
-  let forecastApiKey = "02060cacd430ctof7d20b656741fc18d";
-  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&units=metric`;
-  axios.get(forecastApiUrl).then(displayForecast);
-}
-
 search("Munich");
+displayForecast();
