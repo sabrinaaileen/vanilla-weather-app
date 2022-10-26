@@ -56,3 +56,6 @@ h2 {
 .forecast-min {
   opacity: 0.7;
 }
+.forecast-max {
+  font-weight: bold;
+}

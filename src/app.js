@@ -42,30 +42,46 @@ function showDate() {
 }
 showDate();
 
+function getForecastDay(timestamp) {
+  let forecastDate = new Date(timestamp * 1000);
+  let day = forecastDate.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let dailyForecast = response.data.daily;
+
   let forcastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
               <div class="col-2">
-                <div class="forecast-date">${day}</div>
+                <div class="forecast-date">${getForecastDay(
+                  forecastDay.time
+                )}</div>
                 <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                  src="${forecastDay.condition.icon_url}"
                   alt=""
                   class="forecast-icon"
                   width="50px"
                 />
                 <div class="forecast-temp">
-                  <span class="forecast-min">9</span> |
-                  <span class="forecast-max">18</span>
+                  <span class="forecast-min">${Math.round(
+                    forecastDay.temperature.minimum
+                  )}</span> |
+                  <span class="forecast-max">${Math.round(
+                    forecastDay.temperature.maximum
+                  )}</span>
                 </div>
               </div>   
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
