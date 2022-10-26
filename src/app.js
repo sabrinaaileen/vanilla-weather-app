@@ -42,7 +42,8 @@ function showDate() {
 }
 showDate();
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forcastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -71,6 +72,14 @@ function displayForecast() {
   forcastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  apiKey = "02060cacd430ctof7d20b656741fc18d";
+  apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperature = document.querySelector(".actualTemp");
@@ -93,6 +102,7 @@ function showTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -132,4 +142,3 @@ let celsiusLink = document.querySelector("#celcius");
 celsiusLink.addEventListener("click", displayCelsius);
 
 search("Munich");
-displayForecast();
