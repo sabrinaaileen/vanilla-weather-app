@@ -37,6 +37,7 @@ body {
 
 h1 {
   color: #5585b5;
+  margin-top: 5px;
 }
 #country {
   font-size: 15px;
@@ -96,7 +97,4 @@ h2 {
 }
 #code-signature {
   color: #5585b5;
-}
-#code-signature:link {
-  color: #24527a;
 }

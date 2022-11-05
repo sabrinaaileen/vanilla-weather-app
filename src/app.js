@@ -89,15 +89,13 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   apiKey = "02060cacd430ctof7d20b656741fc18d";
   apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = document.querySelector(".actualTemp");
   let currentCity = document.querySelector("#city");
   let currentCountry = document.querySelector("#country");
@@ -121,7 +119,6 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   getForecast(response.data.coordinates);
-  console.log(getForecast);
 }
 
 function search(city) {
@@ -133,7 +130,6 @@ function search(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#input-city");
-  console.log(cityElement.value);
   search(cityElement.value);
 }
 
