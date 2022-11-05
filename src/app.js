@@ -100,6 +100,7 @@ function showTemperature(response) {
   console.log(response.data);
   let temperature = document.querySelector(".actualTemp");
   let currentCity = document.querySelector("#city");
+  let currentCountry = document.querySelector("#country");
   let feelsLike = document.querySelector("#feels-like-temp");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
@@ -110,6 +111,7 @@ function showTemperature(response) {
 
   temperature.innerHTML = Math.round(response.data.temperature.current);
   currentCity.innerHTML = response.data.city;
+  currentCountry.innerHTML = response.data.country;
   feelsLike.innerHTML = Math.round(response.data.temperature.feels_like);
   description.innerHTML = response.data.condition.description;
   humidity.innerHTML = response.data.temperature.humidity;
@@ -119,6 +121,7 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   getForecast(response.data.coordinates);
+  console.log(getForecast);
 }
 
 function search(city) {
@@ -147,9 +150,9 @@ function displayCelsius(event) {
 }
 let celsiusTemperature = null;
 
-function searchCurrentPosition(coordinates) {
+function searchCurrentPosition(position) {
   let apiKey = "02060cacd430ctof7d20b656741fc18d";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 

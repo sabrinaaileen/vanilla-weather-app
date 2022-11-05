@@ -38,6 +38,11 @@ body {
 h1 {
   color: #5585b5;
 }
+#country {
+  font-size: 15px;
+  color: #24527a;
+  margin: 0 auto;
+}
 h2 {
   font-size: 30px;
   color: #24527a;
