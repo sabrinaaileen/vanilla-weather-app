@@ -29,20 +29,39 @@
         <div class="weather-app">
           <p id="date-today">Mittwoch, 19. Oktober</p>
           <p id="time-today">13:44</p>
-          <form class="row g-3" id="search-form">
-            <div class="col-auto">
-              <label for="inputCity" class="visually-hidden">City</label>
-              <input
-                type="search"
-                class="form-control"
-                id="input-city"
-                placeholder="Enter a city"
-              />
+          <div class="row">
+            <div class="col-7">
+              <form class="row g-3" id="search-form">
+                <div class="col-auto">
+                  <label for="inputCity" class="visually-hidden">City</label>
+                  <input
+                    type="search"
+                    class="form-control"
+                    id="input-city"
+                    placeholder="Enter a city"
+                  />
+                </div>
+                <div class="col-auto">
+                  <button
+                    type="submit"
+                    class="btn btn-primary mb-3"
+                    id="search-button"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
             </div>
-            <div class="col-auto">
-              <button type="submit" class="btn btn-primary mb-3">Search</button>
+            <div class="col-3">
+              <button
+                type="button"
+                class="btn btn-primary mb-3"
+                id="current-button"
+              >
+                Current
+              </button>
             </div>
-          </form>
+          </div>
           <h1 id="city"></h1>
           <h2>
             <img src="" id="weather-icon" alt="weather icon" />
@@ -71,7 +90,7 @@
           </div>
           <div class="weatherforecast" id="forecast"></div>
         </div>
-        <small>
+        <small id="code-signature">
           <a
             href="https://github.com/sabrinaaileen/vanilla-weather-app"
             target="_blank"

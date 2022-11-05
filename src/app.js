@@ -15,7 +15,7 @@ function showDate() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Sunday",
+    "Saturday",
   ];
   let day = days[date.getDay()];
   let months = [
@@ -145,8 +145,18 @@ function displayCelsius(event) {
   let celsiusTemp = document.querySelector(".actualTemp");
   celsiusTemp.innerHTML = Math.round(celsiusTemperature);
 }
-
 let celsiusTemperature = null;
+
+function searchCurrentPosition(coordinates) {
+  let apiKey = "02060cacd430ctof7d20b656741fc18d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function catchLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchCurrentPosition);
+}
 
 let searching = document.querySelector("#search-form");
 searching.addEventListener("submit", handleSubmit);
@@ -156,5 +166,8 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celcius");
 celsiusLink.addEventListener("click", displayCelsius);
+
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", catchLocation);
 
 search("Munich");
