@@ -12,10 +12,13 @@ body {
 }
 #date-today {
   color: #24527a;
+  margin-bottom: 0px;
 }
 
 #time-today {
   color: #24527a;
+  margin-top: 3px;
+  margin-bottom: 7px;
 }
 #input-city {
   border: 1px solid #24527a;
@@ -38,15 +41,18 @@ body {
 h1 {
   color: #5585b5;
   margin-top: 5px;
+  margin-bottom: 0px;
 }
 #country {
   font-size: 15px;
   color: #24527a;
-  margin: 0 auto;
+  margin-top: 0px;
 }
 h2 {
   font-size: 30px;
   color: #24527a;
+  padding-left: 10px;
+  margin-bottom: 0px;
 }
 
 .actualTemp {
